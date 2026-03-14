@@ -26,9 +26,9 @@ jobs:
         run: npm install
 
       - name: Build Angular
-        run: npx ngh --dir=dist/portfolio/browser
+        run: npm run build -- --base-href "/Jareth.dev/"
 
       - name: Deploy with ngh
-        run: npx ngh --dir=dist
+        run: npx ngh --dir=dist/portfolio/browser
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
