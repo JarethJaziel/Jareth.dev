@@ -1,40 +1,100 @@
 <header class="fixed top-0 w-full z-50 backdrop-blur-lg bg-zinc-950/70 border-b border-zinc-800">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="max-w-6xl mx-auto px-6 py-4">
 
-        <a href="#hero"
-            class="flex items-center gap-x-3 font-bold text-lg text-gradient hover:text-indigo-400 transition group">
-            <div
-                class="flex items-center justify-center h-10 w-10 shrink-0 rounded-full bg-stone-200 border border-zinc-700 shadow-inner p-1 transition-transform duration-300 ease-out group-hover:scale-110">
-                <img src="logos/logo-jj.png" alt="Logo de Jareth Jaziel Moo Pan" class="h-full w-full object-contain">
-            </div>
-            Jareth.dev
-        </a>
+        <div class="flex justify-between items-center">
 
-        <div class="flex items-center gap-6 text-sm">
-            <a href="#experience" class="hover:text-white transition hidden md:block">Experience</a>
-            <a href="#about" class="hover:text-white transition">About</a>
-            <a href="#projects" class="hover:text-white transition">Projects</a>
-            <a href="#contact" (click)="sidebarRef.triggerShake()" class="hover:text-white transition">Contact</a>
-
-            <div class="relative group">
-                <button
-                    class="flex items-center gap-1 px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-lg hover:bg-indigo-500/20 transition font-medium">
-                    Download CV
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
+            <!-- Logo -->
+            <a href="#hero"
+                class="flex items-center gap-x-3 font-bold text-lg text-gradient hover:text-indigo-400 transition group">
 
                 <div
-                    class="absolute right-0 mt-2 w-32 bg-zinc-900 border border-zinc-800 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <a href="https://raw.githubusercontent.com/JarethJaziel/cv-jareth-moo/main/Jareth_Moo_CV_ES.pdf"
-                        target="_blank"
-                        class="block px-4 py-2 hover:bg-zinc-800 hover:text-white transition">Español</a>
-                    <a href="https://raw.githubusercontent.com/JarethJaziel/cv-jareth-moo/main/Jareth_Moo_CV_EN.pdf"
-                        target="_blank"
-                        class="block px-4 py-2 hover:bg-zinc-800 hover:text-white transition">English</a>
+                    class="flex items-center justify-center h-10 w-10 shrink-0 rounded-full bg-stone-200 border border-zinc-700 shadow-inner p-1 transition-transform duration-300 ease-out group-hover:scale-110">
+                    <img src="logos/logo-jj.png" alt="Logo de Jareth Jaziel Moo Pan"
+                        class="h-full w-full object-contain">
                 </div>
+
+                Jareth.dev
+            </a>
+
+            <!-- Botón hamburguesa -->
+            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white">
+
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                    @if (!isMenuOpen) {
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                    } @else {
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                    }
+
+                </svg>
+            </button>
+
+            <!-- Menú escritorio -->
+            <div class="hidden md:flex items-center gap-6 text-sm">
+
+                <a href="#experience" class="hover:text-white transition">Experience</a>
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#projects" class="hover:text-white transition">Projects</a>
+                <a (click)="onContactClick($event)" class="hover:text-white transition cursor-pointer">Contact</a>
+
+
+                <!-- CV -->
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-lg hover:bg-indigo-500/20 transition font-medium">
+
+                        Download CV
+
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+
+                    </button>
+
+                    <div
+                        class="absolute right-0 mt-2 w-32 bg-zinc-900 border border-zinc-800 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
+                        <a href="https://raw.githubusercontent.com/JarethJaziel/cv-jareth-moo/main/Jareth_Moo_CV_ES.pdf"
+                            target="_blank" class="block px-4 py-2 hover:bg-zinc-800">Español</a>
+
+                        <a href="https://raw.githubusercontent.com/JarethJaziel/cv-jareth-moo/main/Jareth_Moo_CV_EN.pdf"
+                            target="_blank" class="block px-4 py-2 hover:bg-zinc-800">English</a>
+
+                    </div>
+                </div>
+
             </div>
         </div>
+
+        <!-- MENÚ MOBILE -->
+        @if (isMenuOpen) {
+        <div class="md:hidden flex flex-col gap-4 pt-6 pb-4 text-center text-sm">
+
+            <a (click)="toggleMenu()" href="#experience" class="hover:text-white">Experience</a>
+            <a (click)="toggleMenu()" href="#about" class="hover:text-white">About</a>
+            <a (click)="toggleMenu()" href="#projects" class="hover:text-white">Projects</a>
+            <a (click)="onContactClick($event); toggleMenu()" class="hover:text-white cursor-pointer">Contact</a>
+
+            <div class="border-t border-zinc-800 pt-4 flex flex-col gap-2">
+
+                <a href="https://raw.githubusercontent.com/JarethJaziel/cv-jareth-moo/main/Jareth_Moo_CV_ES.pdf"
+                    target="_blank" class="hover:text-indigo-400">
+                    CV Español
+                </a>
+
+                <a href="https://raw.githubusercontent.com/JarethJaziel/cv-jareth-moo/main/Jareth_Moo_CV_EN.pdf"
+                    target="_blank" class="hover:text-indigo-400">
+                    CV English
+                </a>
+
+            </div>
+
+        </div>
+        }
+
     </nav>
 </header>
