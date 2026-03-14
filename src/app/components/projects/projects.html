@@ -1,0 +1,73 @@
+<section id="projects" class="py-28 px-6 max-w-6xl mx-auto">
+
+    @if (repos$ | async; as repos) {
+
+    <h2 class="text-4xl font-bold text-center mb-16 text-gradient">
+        Projects
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        @for (repo of repos; track repo.id) {
+
+        <div
+            class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:scale-[1.03] transition-all duration-500 overflow-hidden">
+
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+
+            <div class="relative z-10">
+                <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+                    {{ repo.name | titlecase }}
+                </h3>
+
+                <div class="flex flex-wrap gap-2 my-4">
+                    @if (repo.language) {
+                    <span
+                        class="px-2 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase border border-indigo-500/20">
+                        {{ repo.language }}
+                    </span>
+                    }
+                </div>
+
+                <p class="text-zinc-400 text-sm line-clamp-3 mb-6 min-h-[60px]">
+                    {{ repo.description || 'Check out the repo for more information' }}
+                </p>
+
+                <div class="flex justify-between items-center">
+                    <span class="flex items-center gap-1 text-zinc-500 text-xs">
+                        <span class="text-yellow-500">★</span> {{ repo.stargazers_count }}
+                    </span>
+                    <a [href]="repo.html_url" target="_blank"
+                        class="text-sm font-semibold text-cyan-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Explorar Repo <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        }
+
+
+    </div>
+
+
+    <div class="flex justify-end mt-12">
+
+        <a href="https://github.com/JarethJaziel" target="_blank" class="px-6 py-3 border border-zinc-700 rounded-lg
+           hover:border-zinc-500 hover:bg-zinc-900
+           transition">
+            View more on GitHub
+        </a>
+
+    </div>
+
+    } @else {
+    <div class="flex flex-col items-center justify-center py-20 text-zinc-500 gap-4">
+        <div class="w-10 h-10 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+        <p class="font-medium">Fetching repositories for Jareth Moo...</p>
+    </div>
+    }
+
+</section>

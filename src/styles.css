@@ -1,3 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+@layer base {
+
+    :root {
+        color-scheme: dark;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-zinc-950 text-zinc-300 antialiased overflow-x-hidden;
+    }
+
+    section {
+        scroll-margin-top: 100px;
+    }
+
+}
+
+@layer utilities {
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400;
+    }
+
+}
+
+@keyframes custom-shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+
+    75% {
+        transform: translateX(-4px);
+    }
+}
+
+.animate-shake {
+    animation: custom-shake 0.4s ease-in-out;
+}

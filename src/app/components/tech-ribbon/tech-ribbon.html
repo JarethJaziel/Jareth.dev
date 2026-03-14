@@ -1,0 +1,39 @@
+<div class="w-full bg-zinc-900/30 border-y border-zinc-800/50 py-12 mt-12 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <p class="text-center text-zinc-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-12">
+            Technical Expertise
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            @for (cat of categories; track cat.name; let i = $index) {
+            <div class="flex flex-col items-center">
+
+                <h3 class="text-indigo-400 text-[10px] font-mono font-bold uppercase tracking-widest mb-6 px-4 py-1.5 bg-indigo-500/5 border border-indigo-500/10 rounded-full text-center"
+                    data-aos="fade-down" [attr.data-aos-delay]="i * 100">
+                    {{ cat.name }}
+                </h3>
+
+                <div class="flex flex-wrap justify-center gap-4 max-w-[240px]">
+                    @for (tech of cat.items; track tech; let j = $index) {
+                    <div class="group relative mb-6" data-aos="zoom-in" [attr.data-aos-delay]="(i * 150) + (j * 40)">
+
+                        <img [src]="'https://skillicons.dev/icons?i=' + tech" [alt]="tech" class="h-10 w-10 transition-all duration-300 
+                                            grayscale group-hover:grayscale-0 
+                                            group-hover:scale-110 group-hover:-translate-y-1
+                                            cursor-pointer" />
+
+                        <span class="absolute left-1/2 -translate-x-1/2 top-full pt-1.5
+                                             text-[9px] text-zinc-500 font-mono opacity-0 
+                                             group-hover:opacity-100 transition-opacity 
+                                             uppercase whitespace-nowrap z-10">
+                            {{ tech === 'py' ? 'python' : tech }}
+                        </span>
+                    </div>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
