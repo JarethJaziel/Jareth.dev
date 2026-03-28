@@ -14,14 +14,14 @@
                     [class.border-red-500]="form.controls.email.touched && form.controls.email.invalid"
                     class="w-full p-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
             </div>
-            <div> <textarea rows="5" placeholder="Tu mensaje" formControlName="message"
+            <div> <textarea rows="5" placeholder="Your message" formControlName="message"
                     [class.border-red-500]="form.controls.message.touched && form.controls.message.invalid"
                     class="w-full p-3 rounded-xl bg-zinc-900 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
             </div> <button type="submit" [disabled]="sending"
                 class="px-6 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 transition text-white font-semibold w-full">
-                {{ sending ? 'Enviando...' : 'Enviar mensaje' }} </button> @if (success) { <p
-                class="text-green-400 mt-3"> Mensaje enviado correctamente </p> } @if (error) { <p
-                class="text-red-400 mt-3"> Error al enviar el mensaje </p> }
+                {{ sending ? 'Sending...' : 'Send message' }} </button> @if (success) { <p class="text-green-400 mt-3">
+                Message sent successfully </p> } @if (error) { <p class="text-red-400 mt-3"> Error sending message </p>
+            }
         </form>
     </div>
 </section>
