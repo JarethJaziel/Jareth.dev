@@ -13,14 +13,8 @@ export class Navbar {
   @Input() sidebarRef!: SocialSidebar;
 
   onContactClick($event: PointerEvent) {
-    if (window.innerWidth < 768) {
-      // móvil → ir a sección contact
-      globalThis.location.hash = 'contact';
-    } else {
-      // desktop → hacer shake
-      $event.preventDefault();
-      this.sidebarRef.triggerShake();
-    }
+    globalThis.location.hash = 'contact';
+    this.sidebarRef.triggerShake();
   }
 
   isMenuOpen = false;

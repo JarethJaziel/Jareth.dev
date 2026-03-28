@@ -11,11 +11,11 @@ export class TechRibbon {
   categories = [
     {
       name: 'Languages',
-      items: ['java', 'py', 'php', 'ts', 'html', 'css', 'js']
+      items: ['java', 'py', 'php', 'ts', 'html', 'css', 'js', 'c', 'r']
     },
     {
       name: 'Frameworks',
-      items: ['spring', 'angular']
+      items: ['spring', 'angular', 'jquery', 'bootstrap']
     },
     {
       name: 'Databases',
@@ -23,7 +23,7 @@ export class TechRibbon {
     },
     {
       name: 'Tools',
-      items: ['git', 'maven', 'gradle']
+      items: ['git', 'maven', 'gradle', 'rabbitmq', 'docker', 'postman', 'npm']
     }
   ];
 

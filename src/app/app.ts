@@ -8,6 +8,7 @@ import { SocialSidebar } from "./components/social-sidebar/social-sidebar";
 import { TechRibbon } from "./components/tech-ribbon/tech-ribbon";
 import { Experience } from "./components/experience/experience";
 import { About } from "./components/about/about";
+import { Contact } from "./components/contact/contact";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { About } from "./components/about/about";
     Navbar,
     Hero,
     Projects,
-    Footer, SocialSidebar, TechRibbon, Experience, About],
+    Footer, SocialSidebar, TechRibbon, Experience, About, Contact],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
