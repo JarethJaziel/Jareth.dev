@@ -1,0 +1,3 @@
+## 2023-10-27 - Placeholders Are Not Labels
+**Learning:** Relying solely on `placeholder` attributes without explicit `<label>` elements creates a significant accessibility barrier. Screen readers may not announce placeholders reliably, and placeholders disappear once text is entered, removing context for users with cognitive impairments. Additionally, associating error states via visual changes (like border colors) is insufficient for non-visual users.
+**Action:** Establish a pattern of always including explicit `<label>` elements linked to inputs via `for` and `id` attributes. Supplement visual validation states (like `border-red-500`) with semantic `[attr.aria-invalid]` attributes to ensure screen readers announce the validation state correctly.
