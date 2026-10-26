@@ -17,7 +17,7 @@
             </a>
 
             <!-- Botón hamburguesa -->
-            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white">
+            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white" aria-label="Toggle navigation menu" [attr.aria-expanded]="isMenuOpen">
 
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
@@ -56,7 +56,7 @@
                     </button>
 
                     <div
-                        class="absolute right-0 mt-2 w-32 bg-zinc-900 border border-zinc-800 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        class="absolute right-0 mt-2 w-32 bg-zinc-900 border border-zinc-800 rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
 
                         <a href="https://raw.githubusercontent.com/JarethJaziel/cv-jareth-moo/main/Jareth_Moo_CV_ES.pdf"
                             target="_blank" class="block px-4 py-2 hover:bg-zinc-800">Español</a>
