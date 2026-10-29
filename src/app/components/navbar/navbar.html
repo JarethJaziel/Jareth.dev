@@ -17,9 +17,12 @@
             </a>
 
             <!-- Botón hamburguesa -->
-            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white">
+            <button (click)="toggleMenu()"
+                    class="md:hidden text-zinc-400 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
+                    aria-label="Toggle navigation menu"
+                    [attr.aria-expanded]="isMenuOpen">
 
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 
                     @if (!isMenuOpen) {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
