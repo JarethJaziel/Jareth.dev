@@ -17,7 +17,7 @@
             </a>
 
             <!-- Botón hamburguesa -->
-            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white">
+            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white" aria-label="Toggle navigation menu" [attr.aria-expanded]="isMenuOpen">
 
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
@@ -44,7 +44,8 @@
                 <!-- CV -->
                 <div class="relative group">
                     <button
-                        class="flex items-center gap-1 px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-lg hover:bg-indigo-500/20 transition font-medium">
+                        class="flex items-center gap-1 px-4 py-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-lg hover:bg-indigo-500/20 transition font-medium"
+                        aria-haspopup="true" aria-expanded="false">
 
                         Download CV
 
