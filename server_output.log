@@ -1,0 +1,27 @@
+
+> portfolio@0.0.0 start
+> ng serve
+
+❯ Building...
+✔ Building...
+Browser bundles
+Initial chunk files  | Names            |  Raw size
+main.js              | main             | 100.63 kB |
+styles.css           | styles           |  41.91 kB |
+
+                     | Initial total    | 142.54 kB
+
+
+Server bundles
+Initial chunk files  | Names            |  Raw size
+main.server.mjs      | main.server      | 101.90 kB |
+server.mjs           | server           |   1.84 kB |
+polyfills.server.mjs | polyfills.server | 268 bytes |
+
+Application bundle generation complete. [3.655 seconds] - 2026-11-01T17:19:45.590Z
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+XHR support in `@angular/platform-server` is deprecated and will be removed in a future version of Angular. It has known security and performance issues in server environments, such as forwarding `Authorization` headers on cross-origin redirects and susceptibility to denial-of-service (DoS) via redirect loops. Please enable the HttpClient fetch backend instead by using `withFetch()`.
