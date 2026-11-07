@@ -17,9 +17,10 @@
             </a>
 
             <!-- Botón hamburguesa -->
-            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white">
+            <button (click)="toggleMenu()" class="md:hidden text-zinc-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
+                aria-label="Toggle mobile menu" [attr.aria-expanded]="isMenuOpen" aria-controls="mobile-menu">
 
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 
                     @if (!isMenuOpen) {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -72,7 +73,7 @@
 
         <!-- MENÚ MOBILE -->
         @if (isMenuOpen) {
-        <div class="md:hidden flex flex-col gap-4 pt-6 pb-4 text-center text-sm">
+        <div id="mobile-menu" class="md:hidden flex flex-col gap-4 pt-6 pb-4 text-center text-sm">
 
             <a (click)="toggleMenu()" href="#experience" class="hover:text-white">Experience</a>
             <a (click)="toggleMenu()" href="#about" class="hover:text-white">About</a>
